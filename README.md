@@ -1,4 +1,4 @@
-# AVR128DB48 - AK9723AJ CO₂ Medical Monitoring System
+# AK9723AJ CO₂ Medical Monitoring System
 
 **Embedded real-time CO₂ monitoring system for respiratory waveform analysis using AVR128DB48 MCU and AK9723AJ NDIR sensor.**
 
