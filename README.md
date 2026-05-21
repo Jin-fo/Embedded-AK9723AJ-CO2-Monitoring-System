@@ -50,7 +50,7 @@
 - **Display optimization** – Optional SerLCD disable mode to improve DAC waveform stability and reduce signal jitter  
 - **Status indication** – Single GPIO LED used for boot indication and runtime error signaling via `get_AK9723_stats()`  
 
-**Key Interfaces Summary:**
+**Interfaces Summary:**
 
 | Interface | Peripheral | Role |
 |-----------|------------|------|
