@@ -37,18 +37,17 @@
 
 ## Executive Summary
 
-**System Definition:** An AVR128DB48-based real-time CO₂ monitoring system interfaced with the AK9723AJ NDIR CO₂ sensor via bidirectional TWI (I²C) communication protocol.
+**System Definition:**
+An **AK9723 Medical CO₂ Breathing Monitor** is a embedded platform designed for **patient respiratory monitoring (capnography)**. Built around the **AVR128DB48 microcontroller** and **Asahi Kasei Microdevices AK9723 NDIR CO₂ sensor**, this system delivers real-time carbon dioxide concentration measurement featuring:
 
-**Medical Application:** Real-time CO₂-based respiratory monitoring system aimed at capnography-style waveform assessment for ICU, ventilator, anesthesia, and emergency use cases.
-
-## Core Outputs
+**Device Features:**
 
 - **CO₂ measurement display** – Real-time sensor output derived from digitized voltage levels, converted to CO₂ ppm and shown as floating-point values on 20×4 SerLCD  
 - **Analog waveform (DAC)** – DAC-based analog reconstruction of sensor voltage for respiratory waveform visualization  
 - **Terminal control (USART FSM)** – Interrupt-driven USART (115200 baud) interface using ASCII commands with FSM-based parsing for AK9723AJ configuration and calibration register control  
 - **Multi-page SerLCD output (SPI0)** – Multi-page display system with ~400 ms update delay  
 - **Display optimization** – Optional SerLCD disable mode to improve DAC waveform stability and reduce signal jitter  
-- **Status indication** – Single GPIO LED used for boot indication and runtime error signaling via `get_AK9723_stats()`  
+- **Status indication** – Single GPIO LED used for boot indication and runtime error signaling via `get_AK9723_stats()`
 
 **Interfaces Summary:**
 
@@ -58,6 +57,9 @@
 | **SPI0** | Master | SerLCD display control with 400ms stabilization delay |
 | **USART** | 115200 baud | Terminal command interface, interrupt-driven ASCII reception |
 | **DAC** | Analog output | CO₂ waveform visualization for medical monitoring |
+
+**Medical Application:** Real-time CO₂-based respiratory monitoring system aimed at capnography-style waveform assessment for ICU, ventilator, anesthesia, and emergency use cases.
+
 
 <insert executive_summary_diagram_here>
 
