@@ -58,7 +58,9 @@ An **AK9723 Medical CO₂ Breathing Monitor** is a embedded platform designed fo
 | **USART** | 115200 baud | Terminal command interface, interrupt-driven ASCII reception |
 | **DAC** | Analog output | CO₂ waveform visualization for medical monitoring |
 
-<insert executive_summary_diagram_here>
+<p align="center">
+  <img src="docs/images/system_block_diagram.png" alt="System Block Diagram" width="700"/>
+</p>
 
 *Figure 1: Executive summary – complete system block diagram showing AVR128DB48, AK9723AJ sensor, SerLCD display, DAC waveform output, and USART terminal interface*
 
