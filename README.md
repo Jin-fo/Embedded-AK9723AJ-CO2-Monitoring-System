@@ -25,18 +25,18 @@
 - [Executive Summary](#executive-summary)
 - [System Overview](#system-overview)
 - [Hardware Architecture](#hardware-architecture)
-- [Communication Interfaces (TWI / SPI / USART / DAC)](#communication-interfaces-twi--spi--usart--dac)
+- [Communication Interfaces](#communication-interfaces-twi--spi--usart--dac)
 - [AK9723AJ CO₂ Sensor Operation](#ak9723aj-co₂-sensor-operation)
 - [Real-Time Data Acquisition & Processing](#real-time-data-acquisition--processing)
-- [FSM-Based USART Terminal Control](#fsm-based-usart-terminal-control)
-- [Medical CO₂ Waveform Output (DAC)](#medical-co₂-waveform-output-dac)
-- [Display System (SerLCD SPI0)](#display-system-serlcd-spi0)
-- [System Optimization & Stability Behavior](#system-optimization--stability-behavior)
-- [Error Handling & Status Indication](#error-handling--status-indication)
+- [USART Terminal Control (FSM)](#fsm-based-usart-terminal-control)
+- [DAC Waveform Output](#medical-co₂-waveform-output-dac)
+- [SerLCD Display System](#display-system-serlcd-spi0)
+- [System Optimization](#system-optimization--stability-behavior)
+- [Error Handling](#error-handling--status-indication)
 
 ---
 
-## 1. Executive Summary
+## Executive Summary
 
 **System Definition:** An AVR128DB48-based real-time CO₂ monitoring system interfaced with the AK9723AJ NDIR CO₂ sensor via bidirectional TWI (I²C) communication protocol.
 
