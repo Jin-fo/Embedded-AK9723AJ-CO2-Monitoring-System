@@ -18,6 +18,20 @@
 **Version 1.0 | Last Updated: May 2026 | Author: Jin Yuan Chen**
 
 </div>
+---
+## Table of Contents
+
+- [Executive Summary](#executive-summary)
+- [System Overview](#system-overview)
+- [Hardware Architecture](#hardware-architecture)
+- [Communication Interfaces (TWI / SPI / USART / DAC)](#communication-interfaces-twi--spi--usart--dac)
+- [AK9723AJ CO₂ Sensor Operation](#ak9723aj-co₂-sensor-operation)
+- [Real-Time Data Acquisition & Processing](#real-time-data-acquisition--processing)
+- [FSM-Based USART Terminal Control](#fsm-based-usart-terminal-control)
+- [Medical CO₂ Waveform Output (DAC)](#medical-co₂-waveform-output-dac)
+- [Display System (SerLCD SPI0)](#display-system-serlcd-spi0)
+- [System Optimization & Stability Behavior](#system-optimization--stability-behavior)
+- [Error Handling & Status Indication](#error-handling--status-indication)
 
 ---
 
