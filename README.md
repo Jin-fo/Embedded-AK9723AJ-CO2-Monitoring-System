@@ -34,37 +34,86 @@
 - [Error Handling](#error-handling--status-indication)
 
 ---
-
 <p align="center">
   <img src="docs/images/system_block_diagram.png" alt="System Block Diagram" style="max-width:100%; height:auto;"/>
 </p>
 
-*Figure 1: complete system block diagram showing AVR128DB48, AK9723AJ sensor, SerLCD display, DAC waveform output, and USART terminal interface*
+# Embedded CO₂ Monitoring System (Capnography-Style)
 
 ## Executive Summary
 
-**System Definition:**
-An **AK9723 Medical CO₂ Breathing Monitor** is a embedded platform designed for **patient respiratory monitoring (capnography)**. Built around the **AVR128DB48 microcontroller** and **Asahi Kasei Microdevices AK9723 NDIR CO₂ sensor**, this system delivers real-time carbon dioxide concentration measurement featuring:
+Embedded real-time **respiratory CO₂ monitoring system** designed for capnography-style waveform analysis.  
+Built on **AVR128DB48 MCU** with an **AK9723AJ NDIR CO₂ sensor**, the platform performs digital gas sensing, analog waveform reconstruction, and multi-interface system visualization for medical monitoring applications.
 
-- **CO₂ measurement display** – Real-time sensor output derived from digitized voltage levels, converted to CO₂ ppm and shown as floating-point values on 20×4 SerLCD  
-- **Analog waveform (DAC)** – DAC-based analog reconstruction of sensor voltage for respiratory waveform visualization  
-- **Terminal control (USART FSM)** – Interrupt-driven USART (115200 baud) interface using ASCII commands with FSM-based parsing for AK9723AJ configuration and calibration register control  
-- **Multi-page SerLCD output (SPI0)** – Multi-page display system with ~400 ms update delay  
-- **Display optimization** – Optional SerLCD disable mode to improve DAC waveform stability and reduce signal jitter  
-- **Status indication** – Single GPIO LED used for boot indication and runtime error signaling via `get_AK9723_stats()`
+The system supports:
+- Real-time CO₂ concentration measurement (ppm)
+- Analog respiratory waveform generation (DAC output)
+- Interrupt-driven UART command interface (115200 baud)
+- SPI-based SerLCD visualization
+- I²C sensor acquisition with calibration support
 
-**Medical Application:** Real-time CO₂-based respiratory monitoring system aimed at capnography-style waveform assessment for ICU, ventilator, anesthesia, and emergency use cases.
-
-**Interfaces Summary:**
-
-| Interface | Peripheral | Role |
-|-----------|------------|------|
-| **TWI (I²C)** | Bidirectional | AK9723AJ sensor communication, command register access, calibration |
-| **SPI0** | Master | SerLCD display control with 400ms stabilization delay |
-| **USART** | 115200 baud | Terminal command interface, interrupt-driven ASCII reception |
-| **DAC** | Analog output | CO₂ waveform visualization for medical monitoring |
-
-
-
+Target applications include ICU respiratory monitoring, ventilator feedback systems, and anesthesia tracking.
 
 ---
+
+## System Architecture
+
+### Sensor Layer
+- **AK9723AJ NDIR CO₂ sensor**
+- I²C (TWI) communication
+- Register-level configuration and calibration support
+
+### Processing Core (AVR128DB48)
+- Real-time signal acquisition and conversion
+- CO₂ ppm computation pipeline
+- FSM-based USART command parser
+- System state + error handling logic
+
+### Output Subsystems
+- **DAC output:** Analog reconstruction of CO₂ respiratory waveform
+- **SerLCD (SPI):** Multi-page real-time display interface
+
+### Control Interface
+- USART terminal interface (115200 baud)
+- Interrupt-driven ASCII command processing
+
+---
+
+## Key Features
+
+- Real-time CO₂ ppm computation from NDIR sensor data
+- Analog waveform generation for respiratory visualization
+- FSM-based UART command interpreter
+- Multi-modal output: LCD + DAC + terminal
+- Configurable sensor calibration and runtime tuning
+- GPIO-based system status indication (boot + fault states)
+
+---
+
+## Communication Interfaces
+
+| Interface | Mode | Function |
+|---|---|---|
+| **TWI (I²C)** | Master | AK9723AJ sensor control, calibration, data acquisition |
+| **SPI0** | Master | SerLCD display updates with timing constraints |
+| **USART** | Interrupt-driven, 115200 baud | Command-line interface and diagnostics |
+| **DAC** | Analog output | CO₂ waveform reconstruction |
+
+---
+
+## Application Scope
+
+Designed for embedded medical monitoring systems requiring:
+- Respiratory CO₂ tracking (capnography-style)
+- Real-time physiological waveform visualization
+- Multi-interface embedded system integration
+- Low-latency sensor-to-output pipelines
+
+---
+
+## System Characteristics
+
+- Deterministic embedded pipeline architecture
+- Mixed-signal system (digital + analog output)
+- Interrupt-driven firmware design
+- Multi-protocol peripheral coordination (I²C, SPI, UART, DAC)
