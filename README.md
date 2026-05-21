@@ -5,8 +5,6 @@
 ---
 
 <div align="center">
-**AVR128DB48 | NDIR CO₂ Sensor | Real-Time Capnography | Multi-Protocol Interface**
-
 [![C++](https://img.shields.io/badge/CPP-00599C?style=for-the-badge&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![AVR](https://img.shields.io/badge/AVR-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus)
 [![I2C](https://img.shields.io/badge/I2C-0078D4?style=for-the-badge&logo=serial&logoColor=white)](https://en.wikipedia.org/wiki/I%C2%B2C)
