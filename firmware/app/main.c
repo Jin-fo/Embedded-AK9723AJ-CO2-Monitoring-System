@@ -98,7 +98,7 @@ int main(void)
 	
 	init_SerLCD(138);
 	init_STATS();
-    //init_AK9723();
+    init_AK9723();
     sei();
 	
     while (1)
@@ -114,14 +114,13 @@ int main(void)
         switch (page_num) 
         {
             case 0:
-                //SPI0_SerLCD_page0();
-				USART2_SerLCD_page0();
+                SPI0_SerLCD_page0();
                 break;
 
             case 1:
-				//TWI0_AK9723_start_meas();
-                //if (!(PORTA.IN & PIN4_bm)) {
-                    //TWI0_AK9723_read_meas();
+				TWI0_AK9723_start_meas();
+                if (!(PORTA.IN & PIN4_bm)) {
+                    TWI0_AK9723_read_meas();
 
                     if (get_AK9723_stats() & (3 << 1)) {
                         PORTA.OUT |= PIN7_bm;
@@ -136,8 +135,8 @@ int main(void)
 					} else {
 						SPI0_SerLCD_page1_disable();
 					}
-					//DAC0_write(meas.at.IR1H, meas.at.IR1M); //task 5
-                //}
+					DAC0_write(meas.at.IR1H, meas.at.IR1M); //task 5
+                }
 				
 				_delay_ms(2);
                 break;
