@@ -2,8 +2,6 @@
 
 **Real-time CO₂ detection with bidirectional TWI communication, SPI display with 400ms stabilization delay, USART115200 interrupt-driven terminal with FSM command parsing, and DAC analog waveform output for patient breathing monitoring**
 
----
-
 <div align="center">
   
 [![C++](https://img.shields.io/badge/CPP-00599C?style=for-the-badge&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
