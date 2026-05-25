@@ -4,6 +4,7 @@
 
 <div align="center">
 
+[![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://en.wikipedia.org/wiki/C%2B%2B)
 [![AVR](https://img.shields.io/badge/AVR-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://www.microchip.com/)
 [![I2C](https://img.shields.io/badge/I2C-0078D4?style=for-the-badge)](https://en.wikipedia.org/wiki/I%C2%B2C)
 [![SPI](https://img.shields.io/badge/SPI-FF6B6B?style=for-the-badge)](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)
