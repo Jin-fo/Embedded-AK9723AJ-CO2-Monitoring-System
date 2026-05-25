@@ -1,9 +1,10 @@
-# Embedded AK9723AJ CO₂ Monitoring System
+# Embedded AK9723AJ CO₂ Monitor
 
 **Embedded real-time CO₂ monitoring system for respiratory waveform analysis using AVR128DB48 MCU and AK9723AJ NDIR sensor.**
 
 <div align="center">
 
+[![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://en.wikipedia.org/wiki/C%2B%2B)
 [![AVR](https://img.shields.io/badge/AVR-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://www.microchip.com/)
 [![I2C](https://img.shields.io/badge/I2C-0078D4?style=for-the-badge)](https://en.wikipedia.org/wiki/I%C2%B2C)
 [![SPI](https://img.shields.io/badge/SPI-FF6B6B?style=for-the-badge)](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)
@@ -23,9 +24,9 @@
   <em>Figure 1: System block diagram of the AVR128DB48–AK9723AJ embedded CO₂ monitoring pipeline, illustrating sensor acquisition, real-time processing, and dual-mode output (DAC waveform + SerLCD/UART visualization).</em>
 </p>
 
-## System Overview
+## Overview
 
-Embedded real-time CO₂ monitoring system for respiratory waveform (capnography-style) generation. The system uses an AK9723AJ NDIR CO₂ sensor with AVR128DB48 firmware to implement a deterministic acquisition and processing pipeline. Sensor data is read via I²C (TWI), converted to CO₂ concentration (ppm), and distributed to multiple outputs.
+Embedded real-time CO₂ monitoring system for respiratory waveform (capnography-style) generation. The system uses an AK9723AJ NDIR CO₂ sensor with AVR128DB48 firmware to implement a deterministic acquisition and processing pipeline. Sensor data is read via I²C (TWI), converted to digitalized CO₂ voltage measurement, and distributed to multiple outputs.
 
 The system provides DAC-based analog waveform output, SerLCD visualization via SPI, and USART (115200 baud) terminal control using an interrupt-driven FSM for configuration and calibration. It supports runtime system management and displays CO₂ values in both digital (LCD/UART) and analog (waveform) forms.
 
@@ -52,14 +53,23 @@ The system provides DAC-based analog waveform output, SerLCD visualization via S
 ---
 
 ## Key Features
-
 - Real-time CO₂ concentration computation from NDIR sensor input
 - Dual-domain output: digital display + analog waveform generation
+
+<p align="center">
+  <img src="docs/images/Command_Parse_FSM.png" alt="Command_Parse_FSM" style="max-width:100%; height:auto;"/>
+</p>
+<p align="center">
+<p align="center">
+  <em>Figure 2: Command Parse FSM diagram, logic flow of terminal command characters to AVR microcontroller via USART.</em>
+</p>
+
+  
 - FSM-based UART terminal interface (115200 baud, interrupt-driven)
 - Multi-protocol embedded integration (I²C, SPI, UART, DAC)
 - Runtime calibration and sensor configuration via terminal commands
 - GPIO-based status indication (boot state and fault signaling)
-
+  
 ## Communication Interfaces
 
 | Interface | Role |
@@ -85,3 +95,11 @@ The system provides DAC-based analog waveform output, SerLCD visualization via S
 - Mixed-signal architecture (digital + analog outputs)
 - Interrupt-driven firmware design
 - Multi-protocol peripheral integration (I²C, SPI, UART, DAC)
+
+<p align="center">
+  <img src="docs/images/ak9723aj_to_SerLCD.png" alt="ak9723aj_to_SerLCD" style="max-width:100%; height:auto;"/>
+</p>
+<p align="center">
+<p align="center">
+  <em>Figure 3: Voltage measurement and hexdecimal (IR1) representation of high CO₂ concentration read from the AK9723AJ and displayed on the SerLCD</em>
+</p>
