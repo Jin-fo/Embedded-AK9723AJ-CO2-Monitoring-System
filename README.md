@@ -18,10 +18,10 @@
 
 ---
 <p align="center">
-  <img src="docs/images/twi_bidirectional_char.png" alt="TWI Bidirectional Character Transfer" style="max-width:100%; height:auto;"/>
+  <img src="docs/diagrams/system_block_diagram.png" alt="System Block Diagram" style="max-width:100%; height:auto;"/>
 </p>
 <p align="center">
-  <em>Figure 1: TWI (I2C) bidirectional character transfer used for AK9723AJ communication and runtime configuration.</em>
+  <em>Figure 1: System block diagram of the AVR128DB48 and AK9723AJ embedded CO₂ monitor, showing sensor acquisition, MCU processing, and output visualization paths.</em>
 </p>
 
 ## Overview
@@ -57,10 +57,10 @@ The system provides DAC-based analog waveform output, SerLCD visualization via S
 - Dual-domain output: digital display + analog waveform generation
 
 <p align="center">
-  <img src="docs/images/usart_recieve_115200.png" alt="USART Receive 115200" style="max-width:100%; height:auto;"/>
+  <img src="docs/diagrams/Command_Parse_FSM.png" alt="Command Parse FSM" style="max-width:100%; height:auto;"/>
 </p>
 <p align="center">
-  <em>Figure 2: USART receive path operating at 115200 baud for terminal command parsing and control.</em>
+  <em>Figure 2: Command parse FSM for USART terminal input, showing the state transitions used to decode and dispatch configuration commands.</em>
 </p>
 
   
@@ -77,6 +77,13 @@ The system provides DAC-based analog waveform output, SerLCD visualization via S
 | **SPI0** | SerLCD display updates |
 | **USART (115200)** | Command-line interface |
 | **DAC** | Analog CO₂ waveform output |
+
+<p align="center">
+  <img src="docs/images/twi_bidirectional_char.png" alt="TWI Bidirectional Character Transfer" style="max-width:100%; height:auto;"/>
+</p>
+<p align="center">
+  <em>Figure 3: TWI (I2C) bidirectional character transfer used for AK9723AJ communication and runtime configuration.</em>
+</p>
 
 ---
 
